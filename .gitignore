@@ -1,0 +1,6 @@
+output/
+scope/
+build/
+*.pyc
+__pycache__/
+BugcrowdCsvGrabber.egg-info/
