@@ -1,5 +1,6 @@
 import os
 import glob
+import datetime as dt
 
 from src.core.csv_extractor import (
     extract_asset
@@ -119,31 +120,31 @@ def run(input_directory, output_directory):
         if not os.path.exists(output_directory):
             os.makedirs(output_directory)
 
-        output_file = os.path.join(output_directory, "rough_websites.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_websites.txt")
         save_asset_to_file(all_assets.get("website", set()), output_file, "websites")
 
-        output_file = os.path.join(output_directory, "rough_apis.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_apis.txt")
         save_asset_to_file(all_assets.get("api", set()), output_file, "APIs")
 
-        output_file = os.path.join(output_directory, "rough_ip_addresses.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_ip_addresses.txt")
         save_asset_to_file(all_assets.get("ip_address", set()), output_file, "IP addresses")
 
-        output_file = os.path.join(output_directory, "rough_networks.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_networks.txt")
         save_asset_to_file(all_assets.get("network", set()), output_file, "networks")
 
-        output_file = os.path.join(output_directory, "rough_other_assets.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_other_assets.txt")
         save_asset_to_file(all_assets.get("other", set()), output_file, "other assetss")
 
-        output_file = os.path.join(output_directory, "rough_ios.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_ios.txt")
         save_asset_to_file(all_assets.get("ios", set()), output_file, "iOS assets")
 
-        output_file = os.path.join(output_directory, "rough_android.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_android.txt")
         save_asset_to_file(all_assets.get("android", set()), output_file, "Android assets")
 
-        output_file = os.path.join(output_directory, "rough_hardware.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_hardware.txt")
         save_asset_to_file(all_assets.get("hardware", set()), output_file, "hardware assets")
 
-        output_file = os.path.join(output_directory, "rough_iot.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_rough_iot.txt")
         save_asset_to_file(all_assets.get("iot", set()), output_file, "IoT assets")
 
         for urls in all_assets.get("website", set()).union(all_assets.get("api", set())):
@@ -198,8 +199,8 @@ def run(input_directory, output_directory):
                 cleaned_network = clean_ip(cleaned_network)
                 all_assets["cleaned_ips"] = all_assets.get("cleaned_ips", set()).union({cleaned_network})
 
-        output_file = os.path.join(output_directory, "cleaned_domains.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_cleaned_domains.txt")
         save_asset_to_file(all_assets.get("cleaned_domains", set()), output_file, "cleaned domains")
 
-        output_file = os.path.join(output_directory, "cleaned_ips.txt")
+        output_file = os.path.join(output_directory, f"{dt.datetime.now().strftime('%Y%m%d')}_cleaned_ips.txt")
         save_asset_to_file(all_assets.get("cleaned_ips", set()), output_file, "cleaned IPs")
