@@ -6,12 +6,12 @@ setup(
 	author="Victor Silva",
 	description="A tool to extract and process in scope assets from Bugcrowd CSV files",
 	packages=find_packages(include=["src", "src.*"]),
-	py_modules=["main"],
+	py_modules=["bg_grabber"],
 	package_dir={"": "."},
 	install_requires=[],
 	entry_points={
 		"console_scripts": [
-			"BugcrowdCsvGrabber=main:main",
+			"BugcrowdCsvGrabber=bg_grabber:main",
 		],
 	},
 	classifiers=[
